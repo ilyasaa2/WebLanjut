@@ -1,1 +1,1 @@
-*.sqlite*
+# allow database.sqlite for serverless deployment
