@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "a918e7c1-582b-4d43-9844-307421cb3456",
+		"name": "Tugas Deployment Web & Seluler - Product REST API",
+		"description": "Koleksi Postman untuk Pengujian REST API Backend Laravel (Lokal & Production) sesuai Skenario Pengujian Tugas Kuliah.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string",
+			"description": "Ganti dengan URL hosting production setelah deployment (contoh: https://laravel-api.onrender.com)"
+		}
+	],
+	"item": [
+		{
+			"name": "1. GET - Menampilkan Seluruh Data Produk",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "Mengambil seluruh daftar produk. Target HTTP 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "2. GET - Menampilkan Detail Data Produk (ID: 1)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/products/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				},
+				"description": "Mengambil detail produk ID 1. Target HTTP 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "2b. GET - Detail Data Produk (ID Tidak Ditemukan)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/products/9999",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"9999"
+					]
+				},
+				"description": "Menguji respons saat ID tidak ada di database. Target HTTP 404 Not Found."
+			},
+			"response": []
+		},
+		{
+			"name": "3. POST - Menambahkan Data Produk (Valid)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Produk Baru\",\n  \"price\": 30000,\n  \"stock\": 15,\n  \"description\": \"Produk baru ditambahkan melalui API\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "Menambahkan data produk dengan parameter valid. Target HTTP 201 Created."
+			},
+			"response": []
+		},
+		{
+			"name": "4. POST - Validasi Data (Data Kosong / Tidak Valid)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "Pengujian validasi server saat field wajib tidak diisi. Target HTTP 422 Unprocessable Content."
+			},
+			"response": []
+		},
+		{
+			"name": "5. PUT - Mengubah Data Produk (ID: 1)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Produk Update\",\n  \"price\": 35000,\n  \"stock\": 25,\n  \"description\": \"Data produk telah diperbarui\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/products/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				},
+				"description": "Memperbarui data produk ID 1. Target HTTP 200 OK."
+			},
+			"response": []
+		},
+		{
+			"name": "6. DELETE - Menghapus Data Produk",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/products/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"4"
+					]
+				},
+				"description": "Menghapus data produk. Target HTTP 200 OK."
+			},
+			"response": []
+		}
+	]
+}
