@@ -68,7 +68,7 @@ Sistem bekerja berdasarkan pola komunikasi REST API Stateless melalui jaringan i
 * **Platform Hosting:** Render.com (Free Web Service Docker Environment) / Railway / Free PHP Cloud
 * **URL Backend Online:** `https://weblanjut-laravel-api.onrender.com` (atau URL hasil deploy Anda)
 * **URL Endpoint API:** `https://weblanjut-laravel-api.onrender.com/api/products`
-* **Repository Git:** `https://github.com/[username-anda]/WebLanjut`
+* **Repository Git:** `https://github.com/ilyasaa2/WebLanjut`
 
 ### B. Konfigurasi Environment Production
 File `.env` tidak diunggah ke repository publik demi keamanan (*security best practice*). Pada dashboard hosting, variabel environment diatur sebagai berikut:
