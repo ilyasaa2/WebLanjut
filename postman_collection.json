@@ -8,9 +8,9 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://127.0.0.1:8000",
+			"value": "https://web-lanjut-gold.vercel.app",
 			"type": "string",
-			"description": "Ganti dengan URL hosting production setelah deployment (contoh: https://laravel-api.onrender.com)"
+			"description": "URL hosting production resmi hasil deployment"
 		}
 	],
 	"item": [
